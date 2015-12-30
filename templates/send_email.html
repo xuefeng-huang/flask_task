@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}send later{% endblock %}
+
+{% block content %}
+
+<div class = "row">
+    <div class = "col-md-offset-3 col-md-6">
+        <h3>Email details</h3>
+        
+        <form method = "POST" action = "{{ url_for('save_email') }}" role = "form">
+            {{ form.hidden_tag() }}
+           
+             <div class="form-group">
+                {{ form.event_id.label }}
+                {{ form.event_id|safe }}
+                {% if form.event_id.errors %}
+                    <ul class = 'text-danger'>
+                        {% for error in form.event_id.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.email_subject.label }}
+                {{ form.email_subject|safe }}
+                {% if form.email_subject.errors %}
+                    <ul class = 'text-danger'>
+                        {% for error in form.email_subject.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            
+             <div class="form-group">
+                {{ form.email_content.label }}
+                {{ form.email_content|safe }}
+                {% if form.email_content.errors %}
+                    <ul class = 'text-danger'>
+                        {% for error in form.email_content.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            
+             <div class="form-group">
+                {{ form.send_to.label }}
+                {{ form.send_to|safe }}
+                {% if form.send_to.errors %}
+                    <ul class = 'text-danger'>
+                        {% for error in form.send_to.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.timestamp.label }}
+                {{ form.timestamp|safe }}
+                {% if form.timestamp.errors %}
+                    <ul class = 'text-danger'>
+                        {% for error in form.timestamp.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-default">Send later</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
