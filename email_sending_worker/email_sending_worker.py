@@ -19,7 +19,7 @@ client.login(os.getenv('EMAIL'), os.getenv('PASSWORD'))
 
 for m in emails_not_sent:
     if m.timestamp <= datetime.now():
-        #send email
+        #send mail if time reaches
         msg = MIMEText(m.email_content)
         msg['Subject'] = m.email_subject
         msg['From'] = 'timhxf@gmail.com'
