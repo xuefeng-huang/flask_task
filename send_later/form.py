@@ -7,5 +7,5 @@ class EmailForm(Form):
     email_subject = StringField('subject', [validators.Required()])
     email_content = TextAreaField('content', [validators.Required()])
     send_to = EmailField('Email', [validators.Required()])
-    timestamp = StringField('time to send', [validators.Required()])
+    timestamp = StringField('time to send(ex. Jan 01 2016 14:42)', [validators.Required()])
    
